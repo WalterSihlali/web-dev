@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h1>JavaScript 201</h1>
+
+
+
+    
+
+   
+    
+</head>
+
+<body>
+
+
+
+
+<!-- <script src="script.js">
+
+    
+
+   
+</script> -->
+<strong>Name:</strong>
+<div id="name"  >...</div>
+<strong>Eye eyeColor:</strong>
+<div id="eye_color"  >...</div>
+<strong>Birth year:</strong>
+<div id="birth_year"  >...</div>
+
+<button class="getRandomCharacter">Randomize!</button>
+
+<script>
+         const name = document.getElementById("name");
+         const eyeColor = document.getElementById("eye_color");
+         const birthYear = document.getElementById("birth_year");
+
+         const button = document.querySelector(".getRandomCharacter");
+         button.addEventListener('click',(e) => {
+               e.preventDefault();
+               name.innerHTML = '<em>Loading...</em>';
+               eyeColor.innerHTML = '<em>Loading...</em>';
+               birthYear.innerHTML = '<em>Loading...</em>';
+
+               const randomNumber = Math.ceil(Math.random()*83);
+               console.log(randomNumber);
+               fetch(`https://swapi.dev/api/people/${randomNumber}/`)
+              .then(response => response.json())
+              .then(data => {
+                  console.log(data);
+                  name.innerHTML = data['name'];
+                  eyeColor.innerHTML = data['eye_color'];
+                  birthYear.innerHTML = data['birth_year'];
+              });
+         });
+
+        
+
+        //   let getName = data.getName();
+        //   let getPlanet = data['planet']
+        //   let getMovies = data['movies']
+        // document.querySelector();
+
+</script>
+
+ </body>
+
+
+</html>
